@@ -1,0 +1,9 @@
+.packages/
+__pycache__/
+*.py[cod]
+.streamlit/
+data/*.csv
+streamlit.*.log
+streamlit.pid
+.DS_Store
+Thumbs.db
