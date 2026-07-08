@@ -30,4 +30,4 @@ $env:PYTHONPATH=(Resolve-Path .packages).Path
 & "C:\Users\Gordon Li\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe" -m streamlit run app.py --global.developmentMode false --server.port 8501 --server.headless true
 ```
 
-The app includes one stock filter. By default it analyzes the full ASX 50; when you filter to one or more stocks, every metric, answer, chart, and table updates to that selected set. The detailed price/volume charts use the highest average dollar-volume stock inside the current filter.
+The app includes one stock filter. It starts on CBA by default; when you filter to one or more stocks, every metric, answer, chart, and table updates to that selected set. The detailed price/volume charts use the highest average dollar-volume stock inside the current filter.

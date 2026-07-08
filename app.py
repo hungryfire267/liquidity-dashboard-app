@@ -474,16 +474,16 @@ if market.empty:
         st.code("\n".join(failures[:20]))
     st.stop()
 
-filter_options = ["All ASX 50"] + list(ASX50.keys())
 stock_filter = st.multiselect(
     "Filter by stock",
-    options=filter_options,
-    default=["All ASX 50"],
-    format_func=lambda s: "All ASX 50" if s == "All ASX 50" else f"{s.replace('.AX', '')} - {ASX50[s]}",
+    options=list(ASX50.keys()),
+    default=["CBA.AX"],
+    format_func=lambda s: f"{s.replace('.AX', '')} - {ASX50[s]}",
 )
-selected_filters = [symbol for symbol in stock_filter if symbol != "All ASX 50"]
-if not stock_filter or not selected_filters:
-    selected_filters = list(symbols)
+selected_filters = list(stock_filter)
+if not selected_filters:
+    st.warning("Choose at least one stock to analyze.")
+    st.stop()
 
 market_view = market[market["symbol"].isin(selected_filters)].copy()
 if market_view.empty:
