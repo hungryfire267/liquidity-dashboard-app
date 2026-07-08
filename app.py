@@ -482,7 +482,7 @@ stock_filter = st.multiselect(
     format_func=lambda s: "All ASX 50" if s == "All ASX 50" else f"{s.replace('.AX', '')} - {ASX50[s]}",
 )
 selected_filters = [symbol for symbol in stock_filter if symbol != "All ASX 50"]
-if not stock_filter or "All ASX 50" in stock_filter:
+if not stock_filter or not selected_filters:
     selected_filters = list(symbols)
 
 market_view = market[market["symbol"].isin(selected_filters)].copy()
